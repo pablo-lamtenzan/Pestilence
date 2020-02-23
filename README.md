@@ -6,6 +6,10 @@
 - III. How it works ?
 - IV. Backdoor.
 
+# This project has educationals purposes only
+This is a self replicating virus with a non malicious code source, but malicous code can be added to Pestilence.
+This project was done for educational purposes only, i disclaim the responsability if it used for malicous purposes.
+
 # I. Usage:
 TO DO
 
