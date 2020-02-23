@@ -1,12 +1,12 @@
 # Pestilence
 
 # Sumary
-I. Usage.
-II. Description.
-III. How it works ?
-  - Infection.
-  - Ofuscation.
-IV. Backdoor
+- I. Usage.
+- II. Description.
+- III. How it works ?
+- Infection.
+- Ofuscation.
+- IV. Backdoor
 
 # I. Usage:
 TO DO
