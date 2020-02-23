@@ -4,8 +4,6 @@
 - I. Usage.
 - II. Description.
 - III. How it works ?
-a) Infection.
-b) Ofuscation.
 - IV. Backdoor.
 
 # I. Usage:
