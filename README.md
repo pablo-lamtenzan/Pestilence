@@ -19,7 +19,7 @@ This project is the following part of a group of projects of 42 schools:
 - Famine: a simple virus that infect elf files in a target directories.
 - Pestilence: Famine's virus adding ofuscation methods.
 
-When pestilence will be end, the next step will be code War a polymorphic virus and finally the last challenge is called Death a virus that regroups all the properties of his ancestors. But adding the capacity to have a metamorphic code. But for the momment the goal of this project is to discover and understand the differents ways of ofuscation.
+When pestilence will be end, the next step will be code War a polymorphic virus and finally the last challenge is called Death, a virus that regroups all the properties of his ancestors. But adding the capacity to have a metamorphic code. But for the momment the goal of this project is to discover and understand the differents ways of ofuscation.
 
 # III. How it works ?
 (for the moment i ve only coded Famine, i haven t nothing about pestilence i m just using the readme for organise my future work on Pestilence)
