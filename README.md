@@ -47,3 +47,8 @@ When pestilence will be end, the next step will be code War a polymorphic virus 
     
 # IV.Backdoor:
 For the moment i have no idea how to do that but i will do it
+
+# TO DO 
+- Ofuscation methods
+- Add this methods to Famine code
+- Write all in ASM x64
