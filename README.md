@@ -28,15 +28,15 @@ When pestilence will be end, the next step will be code War a polymorphic virus 
 
   # Ofuscation:
   For the moment all ofuscation methods will be anti-debug methods:
-    - Anti-ptrace:
+  - Anti-ptrace:
       Durring the infection routine a child process will be created with fork(). Use ptrace to attach this process to the parent
       process, if that fail it means the virus process (the process who have to be the parent) is not the parent. So virus could be
       launched into a debugger and we don't want that so we stop the process.
     
-   - Specific process identification:
+ - Specific process identification:
       If there are specific process runing the virus process will be stoped.
       
-   - Hide process in task manager:
+ - Hide process in task manager:
       I have to improve my knowless about that but in theory i can create a fork processs, setsid it for creaate a orphan process
       and not a zombie process. This orphan process will execute a normal process be for example a watcher and if i do it well i
       can use a pthread to execute the virus but in the task manager only the normal process (the watcher for example) will be seen.
