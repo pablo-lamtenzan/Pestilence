@@ -4,8 +4,8 @@
 - I. Usage.
 - II. Description.
 - III. How it works ?
- a) Infection.
- b) Ofuscation.
+a) Infection.
+b) Ofuscation.
 - IV. Backdoor.
 
 # I. Usage:
@@ -43,5 +43,5 @@ When pestilence will be end, the next step will be code War a polymorphic virus 
     
    Can i add something than encrypts and decrips too i think.
     
-# Backdoor:
+# IV.Backdoor:
 For the moment i have no idea how to do that but i will do it
