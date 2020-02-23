@@ -23,25 +23,25 @@ When pestilence will be end, the next step will be code War a polymorphic virus 
 (for the moment i ve only coded Famine, i haven t nothing about pestilence i m just using the readme for organise my future work on Pestilence)
 
   # Infection:
-    - Pestilence will infect binaries using the basic method of change the entry point.
-    - The virus will be placed in the padding after .text section (Have to try EPO tecnique for War seems better)
+  - Pestilence will infect binaries using the basic method of change the entry point.
+  - The virus will be placed in the padding after .text section (Have to try EPO tecnique for War seems better)
 
   # Ofuscation:
-    For the moment all ofuscation methods will be anti-debug methods:
+  For the moment all ofuscation methods will be anti-debug methods:
     - Anti-ptrace:
       Durring the infection routine a child process will be created with fork(). Use ptrace to attach this process to the parent
       process, if that fail it means the virus process (the process who have to be the parent) is not the parent. So virus could be
       launched into a debugger and we don't want that so we stop the process.
     
-    - Specific process identification:
+   - Specific process identification:
       If there are specific process runing the virus process will be stoped.
       
-    - Hide process in task manager:
+   - Hide process in task manager:
       I have to improve my knowless about that but in theory i can create a fork processs, setsid it for creaate a orphan process
       and not a zombie process. This orphan process will execute a normal process be for example a watcher and if i do it well i
       can use a pthread to execute the virus but in the task manager only the normal process (the watcher for example) will be seen.
     
-    Can i add something than encrypts and decrips too i think.
+   Can i add something than encrypts and decrips too i think.
     
 # Backdoor:
 For the moment i have no idea how to do that but i will do it
