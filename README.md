@@ -4,9 +4,9 @@
 - I. Usage.
 - II. Description.
 - III. How it works ?
-- Infection.
-- Ofuscation.
-- IV. Backdoor
+ a) Infection.
+ b) Ofuscation.
+- IV. Backdoor.
 
 # I. Usage:
 TO DO
@@ -22,11 +22,11 @@ When pestilence will be end, the next step will be code War a polymorphic virus 
 # III. How it works ?
 (for the moment i ve only coded Famine, i haven t nothing about pestilence i m just using the readme for organise my future work on Pestilence)
 
-  # Infection:
+  # a) Infection:
   - Pestilence will infect binaries using the basic method of change the entry point.
   - The virus will be placed in the padding after .text section (Have to try EPO tecnique for War seems better)
 
-  # Ofuscation:
+  # b) Ofuscation:
   For the moment all ofuscation methods will be anti-debug methods:
   - Anti-ptrace:
       Durring the infection routine a child process will be created with fork(). Use ptrace to attach this process to the parent
