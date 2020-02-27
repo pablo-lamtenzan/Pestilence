@@ -28,3 +28,4 @@ char            check_process(char **process)
     }
     return (FAILURE);
 }
+
