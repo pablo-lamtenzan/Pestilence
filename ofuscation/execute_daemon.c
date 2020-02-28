@@ -15,17 +15,22 @@
 ** argv is a 2d matrix that has in pos 0 the name of the deamon and in
 ** position [1] : NULL
 */
-char            execute_deamon(char **argv, const char *hexdump, char **env)// skip params for encryptation have to documentate before 
+
+char            execute_deamon(t_aes *aes, char **argv, const char *hexdump, char **env)// skip params for encryptation have to documentate before 
 {
     int         pid;
     FILE        *fp;
 
-    if (1) // encryptation decriptation things
+    if (aes->error == 1)
+        return (FAILURE);
+    // hexdump text is allready encryted wih a const key, so using this key
+    // we will decryp hexdump and deamon its execution
+    if (decrypt(aes, hexdump, sizeof(hexdump)) == SUCCESS)
     {
         if ((fp = fopen(argv[0], "wb+")))
         {
             // need error verification
-            (void)fwrite("my encryted-decryted hexdump", sizeof(char), "my clac len", fp);
+            (void)fwrite(aes->plain_text, sizeof(char), aes->plain_size, fp);
             (void)fclose(fp);
             if (!(pid = fork()))
             {

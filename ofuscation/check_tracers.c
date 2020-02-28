@@ -102,7 +102,7 @@ char            allowed_tracer(t_tracer *tracer)
 /*
 ** check is the program is bein traced by not allowed tracer
 */
-char            check_tracers("to define")
+char            check_tracers(t_aes *eas)
 {
     int         pid;
     t_tracer    tracer;
@@ -111,7 +111,7 @@ char            check_tracers("to define")
             && (get_tracer(&tracer, pid) == SUCCESS))
     {
         if (allowed_tracer(&tracer))
-            ; //"to define->valid_tracer = TRUE;"
+            aes->error = 0;
         if (tracer.status)
             (void)free(tracer.status);
         if (tracer.cmdline)
