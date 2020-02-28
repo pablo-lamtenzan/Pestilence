@@ -31,14 +31,14 @@ Next projects:
 
   # b) Ofuscation:
  - Anti-ptrace:
-  Check using ptrace function if Pestilence is run into a debuger.
+ Check using ptrace function if Pestilence is run into a debuger.
  - Specific process identification:
-  Check if specific not allowed processes are runnig at the same time of Pestilence.
+ Check if specific not allowed processes are runnig at the same time of Pestilence.
  - Tracer checker:
-  Check calling all needed times a deamon during the execution time if there a are a tracer tracing Pestilence
+ Check calling all needed times a deamon during the execution time if there a are a tracer tracing Pestilence
  - Encrypted hexdump:
-  Some tracer checker and infection will be deamons. The hexdump needed for create the deamons is encrypted since the
-  begin. It will be decripted with the same key and IV during the execution.
+ Some tracer checker and infection will be deamons. The hexdump needed for create the deamons is encrypted since the
+ begin. It will be decripted with the same key and IV during the execution.
     
 # IV.Backdoor:
 For the moment i have no idea how to do that but i will do it
