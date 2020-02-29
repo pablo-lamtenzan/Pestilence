@@ -1,7 +1,4 @@
-# Pestilence
-
-Git bug... ofuscation dir is not needed
-
+## Pestilence
 # Sumary
 - I. Usage.
 - II. Description.
