@@ -1,5 +1,7 @@
 # Pestilence
 
+Git bug... offuscation file is not needed
+
 # Sumary
 - I. Usage.
 - II. Description.
