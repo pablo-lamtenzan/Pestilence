@@ -28,13 +28,13 @@
 char                run_atp(t_atp *atp)
 {
     t_aes           *aes;
-    const char      hexdump[] = PERSISTENT_TRACER_CHECKER;
+    const char      hexdump[] = PERSISTANT_TRACER_CRYPTED_HEXDUMP;
     const char      name = PTC_NAME;
 
     if ((aes = init_aes()))
     {
         aes->error = 0;
-        execute_daemon(aes, name, (char *)hexdump, atp->env);
+        execute_deamon(aes, name, (char *)hexdump, atp->env);
         return (SUCCESS);
     }
     return (FAILURE);

