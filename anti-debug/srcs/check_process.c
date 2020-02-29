@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <anti_debug.h>
 
 char            check_process(char **process)
 {
@@ -40,4 +41,3 @@ char            check_process(char **process)
     }
     return (FAILURE);
 }
-

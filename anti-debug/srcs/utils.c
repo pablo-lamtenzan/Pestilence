@@ -16,7 +16,7 @@
 ** take matrix of files and the dir path, will check if the content into the dir are files
 ** if files are founded if will copy and add to files param, if the content is a dir
 ** it will call itself recursivelly ultil there are only files in the dir (copping the files into files param)
-** return matrix of cmdlines */
+** return matrix of cmdlines
 */
 char                **get_cmd_lines(char **files, char *dir_path, char recursion)
 {
@@ -45,10 +45,10 @@ char                **get_cmd_lines(char **files, char *dir_path, char recursion
             files = mtrx2d_add_elem(files, file_path);
     }
     index = -1;
-    while (++(unsigned long)index < mtrx2d_len(folders))
+    while ((unsigned long)++index < mtrx2d_len(folders))
     {
         if (!(files = get_cmd_lines(files, folders[index], 0)))
-            return (NULL)
+            return (NULL);
         (void)free(folders[index]);
     }
     if (folders)
@@ -88,7 +88,7 @@ char                *get_file_data(const char *filename)
 
     if (syscall(SYS_STAT, filename, &buff) == FAILURE)
         return (strdup(""));
-    if ((fd = syscall(SYS_OPEN, filename, O_RDONLY) == FAILURE)
+    if ((fd = syscall(SYS_OPEN, filename, O_RDONLY) == FAILURE))
         return (strdup(""));
     if (!(data = read_file_data(fd, 0x400)))
         return (strdup(""));

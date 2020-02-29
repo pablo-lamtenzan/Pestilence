@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-typedef struct		s_tracer
-{
-	char			*cmdline;
-	char			*status_name;
-	char			*status;
-}					t_tracer;
+#include <anti_debug.h>
 
 /*
 ** check if the dir exist
@@ -68,7 +62,7 @@ char            get_tracer(t_tracer *tracer, int pid)
     if (syscall(SYS_CLOSE, fd) == FAILURE)
         return (FAILURE);
     (void)bzero(path, sizeof(path));
-    (char *)&path = NULL;
+    //(char *)&path = NULL;
     (void)memset((char *)&path, 0, 63);
     (void)snprintf((char *)&path, 63, "/proc/%d/status", pid);
     if ((fd = syscall(SYS_OPEN, path, O_RDONLY)) == FAILURE)
@@ -91,13 +85,9 @@ char            get_tracer(t_tracer *tracer, int pid)
     return (SUCCESS);
 }
 
-
-
 /*
 ** check is current tracers tracked are allowed
 */
-#define ALLOWED_TRACERS     {"bash", "zsh", "csh", "sh", "dash", "ksh93", "tcsh", "fish", "rbash", "ksh", 0}
-
 char            allowed_tracer(t_tracer *tracer)
 {
     const char  *tracers[] = ALLOWED_TRACERS;
@@ -105,8 +95,8 @@ char            allowed_tracer(t_tracer *tracer)
 
     i = -1;
     while (tracers[++i])
-        if (!strcmp(tracer->cmdline, tracer[i])
-                || !strcmp(tracer->status_name, tracer[i]))
+        if (!strcmp(tracer->cmdline, tracers[i])
+                || !strcmp(tracer->status_name, tracers[i]))
             return (SUCCESS);
     return (FAILURE);
 }
@@ -114,7 +104,7 @@ char            allowed_tracer(t_tracer *tracer)
 /*
 ** check is the program is bein traced by not allowed tracer
 */
-char            check_tracers(t_aes *eas)
+char            check_tracers(t_aes *aes)
 {
     int         pid;
     t_tracer    tracer;
@@ -122,7 +112,7 @@ char            check_tracers(t_aes *eas)
             && dir_check(pid)
             && (get_tracer(&tracer, pid) == SUCCESS))
     {
-        if (allowed_tracer(&tracer))
+        if (allowed_tracer(&tracer) == SUCCESS)
             aes->error = 0;
         if (tracer.status)
             (void)free(tracer.status);

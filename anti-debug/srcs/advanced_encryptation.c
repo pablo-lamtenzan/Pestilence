@@ -15,26 +15,7 @@
 ** implement
 */
 
-//#include <openssl/evp.h>
-//#include <openssl/aes.h>
-
-typedef struct          s_aes
-{
-    char                *cypher_text;
-    char                *plain_text;
-    size_t              cypher_size; // xd i wrote bad cipher :/
-    size_t              plain_size;
-    char                error;
-    EVP_CIPHER_CTX      *context_encrypt;
-    EVP_CIPHER_CTX      *context_decrypt;
-    char                *key;
-    size_t              key_size;
-    char                *init_vector;
-    size_t              vec_size;
-}                       t_aes;
-
-#define KEY             "to define must be 256bits for better security"
-#define IV              "to define must be 128 bits"
+# include <anti_debug.h>
 
 t_aes                   *init_aes(void)
 {
@@ -61,7 +42,7 @@ t_aes                   *init_aes(void)
     // init decryp and encrypt
     if (!(EVP_CIPHER_CTX_ctrl(new->context_encrypt, EVP_CTRL_GCM_SET_IVLEN, new->vec_size, NULL) == 1
             && EVP_EncryptInit_ex(new->context_encrypt, NULL, NULL, new->key, new->init_vector) == 1
-            && EVP_CIPHER_CTX_ctrl(new->context_decrypt, EVP_CTRL_GCM_SET_IVLEN, aes->vec_size, NULL) == 1
+            && EVP_CIPHER_CTX_ctrl(new->context_decrypt, EVP_CTRL_GCM_SET_IVLEN, new->vec_size, NULL) == 1
             && EVP_DecryptInit_ex(new->context_decrypt, NULL, NULL, new->key, new->init_vector) == 1))
         return (NULL);
     new->error = 1;
@@ -101,11 +82,11 @@ char                decrypt(t_aes *aes, char *cipher_text, size_t cipher_size)
     int             size;
 
     size = 0;
-    if (!(aes->cipher_text = malloc(sizeof(char) * cipher_size)))
+    if (!(aes->cypher_text = malloc(sizeof(char) * cipher_size)))
         return (FAILURE);
-    eas->cypher_size = cipher_size;
+    aes->cypher_size = cipher_size;
     (void)memcpy(aes->cypher_text, cipher_text, cipher_size);
-    // rm las plain cause we will write another
+    // rm the plain cause we will write another
     if (aes->plain_text)
     {
         (void)free(aes->plain_text);
@@ -113,7 +94,7 @@ char                decrypt(t_aes *aes, char *cipher_text, size_t cipher_size)
     }
     // decrypt with the lib not very hard :)
     if (!(aes->plain_text = malloc(sizeof(char) * aes->cypher_size))
-            || !EVP_DecryptUpdate(aes->context_decrypt, aes->text_plain, &size, aes->cypher_text, aes->cypher_size)
+            || !EVP_DecryptUpdate(aes->context_decrypt, aes->plain_text, &size, aes->cypher_text, aes->cypher_size)
             || EVP_DecryptFinal_ex(aes->context_decrypt, aes->plain_text + size, &size))
         return (FAILURE);
     aes->plain_size = size;

