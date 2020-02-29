@@ -1,6 +1,6 @@
 # Pestilence
 
-Git bug... offuscation file is not needed
+Git bug... ofuscation dir is not needed
 
 # Sumary
 - I. Usage.
