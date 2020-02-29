@@ -27,6 +27,8 @@
 
 #define _GNU_SOURCE //GNU lib gives acces to useful macros
 
+#define TARGETS             {"/tmp/test/", "/tmp/test2/", NULL}
+
 #define ELF_x32             0x0
 #define ELF_x64             0x1
 

