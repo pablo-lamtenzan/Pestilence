@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:21:31 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:21:31 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "infection.h"
+#include "infection.h"
 
 /*
 ** take matrix of files and the dir path, will check if the content into the dir are files
@@ -36,7 +47,7 @@ char                **get_cmd_lines(char **files, char *dir_path, char recursion
     index = -1;
     while (++(unsigned long)index < mtrx2d_len(folders))
     {
-        if (!(files = get_cmd_lines(files, folders[index], 0))
+        if (!(files = get_cmd_lines(files, folders[index], 0)))
             return (NULL)
         (void)free(folders[index]);
     }
@@ -77,7 +88,7 @@ char                *get_file_data(const char *filename)
 
     if (syscall(SYS_STAT, filename, &buff) == FAILURE)
         return (strdup(""));
-    if ((fd = syscall()SYS_OPEN, filename, O_RDONLY) == FAILURE)
+    if ((fd = syscall(SYS_OPEN, filename, O_RDONLY) == FAILURE)
         return (strdup(""));
     if (!(data = read_file_data(fd, 0x400)))
         return (strdup(""));

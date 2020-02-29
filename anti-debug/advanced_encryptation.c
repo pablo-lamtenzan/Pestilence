@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   advanced_encryptation.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:20:56 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:20:56 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 /* Will aes algorithm used by US Army to Top secret 
 ** archives. AES has his opensll lib so is "easy" to 

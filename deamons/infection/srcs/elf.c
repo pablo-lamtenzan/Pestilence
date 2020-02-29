@@ -1,16 +1,16 @@
-#include "elf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   elf.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:23:09 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:23:09 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <dirent.h>
-# include <string.h>
-# include <stdio.h>
-# include <sys/mman.h>
-*/
+#include "infection.h"
 
 /*
 ** returns a new elf entity dinamically allocated and initialisated
@@ -93,7 +93,7 @@ void                    get_magic(t_elf *elf)
 */
 char                    is_elf_file(t_elf *elf)
 {
-    return (!strcmp(ELF_MAGIC, (char *)elf->magic) ? SUCESS : FAILURE);
+    return (!strcmp(ELF_MAGIC, (char *)elf->magic) ? SUCCESS : FAILURE);
 }
 
 /*
@@ -111,7 +111,7 @@ char                    get_elf_header(t_elf *elf)
     (void)get_magic(elf);
     (void)get_bit_architecture(elf);
     (void)get_endian(elf);
-    return (SUCCESS)
+    return (SUCCESS);
 }
 
 /*

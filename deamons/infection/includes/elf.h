@@ -1,8 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   elf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamtenz <plamtenz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/29 18:22:35 by plamtenz          #+#    #+#             */
+/*   Updated: 2020/02/29 18:22:35 by plamtenz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ELF_H
 # define ELF_H
 
-#define SUCESS                      0
+#define SUCCESS                      0
 #define FAILURE                     -1
+
+#include <sys/syscall.h>
+/*
+**      --> SYSCALLS INDEX
+*/
+#define SYS_READ                0
+#define SYS_WRITE               1
+#define SYS_OPEN                2
+#define SYS_CLOSE               3
+#define SYS_STAT                4
+#define SYS_LSEEK               8
+#define SYS_MMAP                9
+#define SYS_MUNMAP              11
+#define SYS_GETDENTS64          217
 
 #define EI_NIDENT                   16
 #define MAGIC_SIZE                  4
@@ -155,6 +181,8 @@ typedef struct                      s_elf
     char                            *filename;
     Elf64_Ehdr                      *hdr;
     unsigned char                   magic[MAGIC_SIZE * 2 + 1];
+    char                            arch_x64;
+    char                            arch_x32;
     char                            b_endian;
     char                            l_endian;
     size_t                          size;
@@ -162,7 +190,17 @@ typedef struct                      s_elf
 }                                   t_elf;
 
 /*
-**      --> ELF PARSE, SANITIZE, WRITE METHODS
+**      --> ELF METHODS
 */
+t_elf                               *new_elf(void);
+void                                free_elf(t_elf *elf);
+void                                get_bit_architecture(t_elf *elf);
+void                                get_endian(t_elf *elf);
+void                                get_magic(t_elf *elf);
+char                                is_elf_file(t_elf *elf);
+char                                get_elf_header(t_elf *elf);
+char                                *read_elf(t_elf *elf, const char *filename);
+void                                *get_elf_content_addr(t_elf *elf);
+
 
 #endif
