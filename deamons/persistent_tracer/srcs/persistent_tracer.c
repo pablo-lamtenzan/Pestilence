@@ -21,6 +21,8 @@
 ** the process is bein traced: More info ATP in google
 */
 
+#include "persistent_tarcer.h"
+
 char            *get_tracer_status_name(int pid)
 {
     int         fd;
@@ -50,7 +52,7 @@ char            *get_tracer_status_name(int pid)
     return (NULL);
 }
 
-void                presistant_tracer_checker(void)
+void                persistent_tracer_checker(void)
 {
     int             pid;
     int             i;
