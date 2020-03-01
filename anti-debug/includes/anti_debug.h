@@ -122,7 +122,7 @@ typedef struct		                s_tracer
 	char			                *status;
 }					                t_tracer;
 
-#define ALLOWED_TRACERS             {"bash", "zsh", "csh", "sh", "dash", "ksh93", "tcsh", "fish", "rbash", "ksh", 0}
+#define ALLOWED_TRACERS             {"bash", "zsh", "csh", "sh", "dash", "ksh93", "tcsh", "fish", "rbash", "ksh", NULL}
 
 char                                dir_check(int pid);
 int                                 get_pid(char is_parent);
