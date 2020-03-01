@@ -13,12 +13,12 @@ This project was done for educational purposes only, i disclaim the responsabili
 TO DO
 
 ## II. Description:
-####This project is the following part of a group of projects of 42 schools:
+#### This project is the following part of a group of projects of 42 schools:
 - Woody_Woodpacker: an elf packer.
 - Famine: a simple virus that infect elf files in a target directories.
 - Pestilence: Famine's virus adding ofuscation anti-debug methods.
 
-####Next projects:
+#### Next projects:
   - War : add poliphormic ofuscation.
   - Death : add metaphormic ofucation.
 
@@ -30,13 +30,13 @@ TO DO
 
   ### b) Ofuscation:
  - Anti-ptrace:
- Check using ptrace function if Pestilence is run into a debuger.
+ ..Check using ptrace function if Pestilence is run into a debuger.
  - Specific process identification:
- Check if specific not allowed processes are runnig at the same time of Pestilence.
+ ..Check if specific not allowed processes are runnig at the same time of Pestilence.
  - Tracer checker:
- Check calling all needed times a deamon during the execution time if there a are a tracer tracing Pestilence
+ ..Check calling all needed times a deamon during the execution time if there a are a tracer tracing Pestilence
  - Encrypted hexdump:
- Some tracer checker and infection will be deamons. The hexdump needed for create the deamons is encrypted since the
+ ..Some tracer checker and infection will be deamons. The hexdump needed for create the deamons is encrypted since the
  begin. It will be decripted with the same key and IV during the execution.
     
 ## IV.Backdoor:
