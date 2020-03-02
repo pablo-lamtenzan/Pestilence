@@ -30,7 +30,7 @@ TO DO
 
   ### b) Ofuscation:
  - Anti-ptrace:
-..*Check using ptrace function if Pestilence is run into a debuger.
+..Check using ptrace function if Pestilence is run into a debuger.
  - Specific process identification:
 ..Check if specific not allowed processes are runnig at the same time of Pestilence.
  - Tracer checker:
